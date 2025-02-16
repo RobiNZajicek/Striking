@@ -1,89 +1,81 @@
-'use client';
+'use client'
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { Card, CardContent } from '@/components/ui/card';
-import { Star } from 'lucide-react';
-
+import React, { useState, useEffect } from 'react';
+import rev from '@/assets/rev.jpeg';
+import './ReviewsCarousel.css';
+import Image from 'next/image';
+import uni from '@/assets/uni.png'
 const reviews = [
-  {
-    name: 'Eliška Syrová',
-    text: 'S trenérem Kubou budete ve správných rukou. Ideální sport na zlepšení fyzického a psychického zdraví, rovnováhy a socializace.',
-    rating: 5,
+  { 
+    name: 'Eliška Syrová', 
+    review: 'S trenérem Kubou budete ve správných rukou. Ideální sport na zlepšení fyzického a psychického zdraví, rovnováhy a socializace.',
+    stars: 5
   },
-  {
-    name: 'Zdeněk Pekárek',
-    text: 'Kdo se chce naučit základy K1 a Thaiboxu, nebo zkusit první zápasové krůčky, mohu vřele doporučit. Trenér Kuba je zapálený mladík s pedagogickým talentem. Vysvětlí, ukáže. Mohu vřele doporučit.',
-    rating: 5,
+  { 
+    name: 'Zdeněk Pekárek', 
+    review: 'Kdo se chce naučit základy K1 a Thaiboxu, nebo zkusit první zápasové krůčky, mohu vřele doporučit. Trenér Kuba je zapálený mladík s pedagogickým talentem. Vysvětlí, ukáže. Mohu vřele doporučit.',
+    stars: 5
   },
-  {
-    name: 'Jana Novotná',
-    text: 'Skvělý trenér, který opravdu ví, co dělá. Velmi doporučuji každému, kdo se chce zlepšit.',
-    rating: 4,
+  { 
+    name: 'Marek Novotný', 
+    review: 'Tréninky jsou skvělé a velmi intenzivní. Doporučuji všem, kteří se chtějí zlepšit a posunout na vyšší úroveň.',
+    stars: 5
   },
-  {
-    name: 'Petr Malý',
-    text: 'Profesionální přístup a skvělá atmosféra na trénincích. Rozhodně doporučuji!',
-    rating: 5,
+  { 
+    name: 'Petr Havel', 
+    review: 'Super atmosféra, profesionální přístup a skvělí lidé. Doporučuji všem, kdo chtějí začít s bojovými sporty.',
+    stars: 4
   },
-  {
-    name: 'Lucie Králová',
-    text: 'Individuální přístup a skvělá motivace. Děkuji za vše!',
-    rating: 5,
+  { 
+    name: 'Jana Králová', 
+    review: 'Tréninky jsou výborné, Kuba je skvělý trenér a ví, jak motivovat.',
+    stars: 5
   },
-  {
-    name: 'Michal Dvořák',
-    text: 'Perfektní trenér a super kolektiv. Doporučuji všem, kteří chtějí zlepšit svou kondici.',
-    rating: 4,
-  },
+  { 
+    name: 'Tomáš Dvořák', 
+    review: 'Díky Kubovi jsem se hodně zlepšil a získal větší sebevědomí. Velmi doporučuji.',
+    stars: 5
+  }
+  
 ];
 
-export default function ReviewCarousel() {
+const ReviewsCarousel = () => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prev) => (prev + 2) % reviews.length);
-    }, 4000);
+      setIndex((prevIndex) => (prevIndex + 1) % reviews.length);
+    }, 5000);
     return () => clearInterval(interval);
   }, []);
 
-  const visibleReviews = [
-    reviews[index],
-    reviews[(index + 1) % reviews.length],
-  ];
-
   return (
-    <div className='relative w-full max-w-4xl mx-auto overflow-hidden'>
-      <h2 className='text-center text-3xl font-bold text-white mb-6'>RECENZE</h2>
-      <div className='relative flex justify-center w-full h-48'>
-        <AnimatePresence mode='sync'>
-          {visibleReviews.map((review, i) => (
-            <motion.div
-              key={review.name}
-              className='absolute w-1/2 px-2'
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -100 }}
-              transition={{ duration: 0.8, ease: 'easeInOut' }}
-              style={{ left: `${i * 50}%` }}
-            >
-              <Card className='bg-black/80 text-white p-6 rounded-xl border border-white/10'>
-                <CardContent>
-                  <div className='flex mb-2'>
-                    {Array.from({ length: review.rating }).map((_, j) => (
-                      <Star key={j} className='text-purple-400 w-5 h-5' />
-                    ))}
-                  </div>
-                  <p className='text-sm'>{review.text}</p>
-                  <p className='mt-3 font-bold'>{review.name}</p>
-                </CardContent>
-              </Card>
-            </motion.div>
+    <div className='relative flex flex-col items-center text-white py-16 overflow-hidden wrapper z-0'>
+      <div className='absolute inset-0 bg-black opacity-70 z-0'></div>
+      <div className='absolute inset-0' style={{ backgroundImage: `url(${rev.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+      <h2 className='relative text-[50px] font-orbion font-black text-white uppercase z-10'>Recenze</h2>
+      <div className='relative flex gap-6 mt-8 w-full justify-center z-10' style={{ overflow: 'hidden', height: '400px' }}>
+        <div className='flex transition-transform duration-[1500ms] ease-in-out'
+             style={{ transform: `translateX(-${index * (100 / 2)}%)`, width: `${(reviews.length / 2) * 100}%` }}>
+          {reviews.map((review, i) => (
+            <div key={i} className='w-1/2 p-6 flex-shrink-0'>
+              <div className='relative bg-[#121212]  z-30 h-[298px] p-8 rounded-xl text-white shadow-lg w-full'>
+                <div className='flex text-2xl'>
+                  {Array(review.stars).fill().map((_, idx) => (
+                    <span key={idx} className='text-primary text-4xl'>★</span>
+                  ))}
+                </div>
+                
+                <p className='mt-6 text-lg text-white z-20 font-sans h-28'>{review.review}</p>
+                <p className='mt-6 font-bold text-primary text-xl z-20 font-sans'>{review.name}</p>
+                <Image width={196} height={172} src={uni.src} className='z-index z-0 absolute opacity-20 w-[250px] h-[250px] right-4 top-4' alt="logo"></Image>
+              </div>
+            </div>
           ))}
-        </AnimatePresence>
+        </div>
       </div>
     </div>
   );
-}
-    
+};
+
+export default ReviewsCarousel;
