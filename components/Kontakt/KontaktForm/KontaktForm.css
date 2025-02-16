@@ -1,0 +1,13 @@
+.KonBlurosss{
+    width: 200px;
+    height: 260px;
+    left: 5%;
+    top:  10%;
+    opacity: 1;   
+    z-index: 20;
+    background-color: #A05A96;
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(220px);
+  z-index: 1;
+   }

@@ -42,7 +42,7 @@ const Treneri = () => {
   }, []);
 
   return (
-    <div className='flex flex-col items-center text-white py-12 bg-[#00060E] relative'>
+    <div className='flex flex-col items-center text-white py-12 bg-[#00060E] relative pb-44'>
       <div className='TreninkBlurosss'></div>
       <h2 className='text-[50px] font-orbion font-black text-primary uppercase'>Nasi Trenéri</h2>
       <div className='flex gap-6 mt-8 relative'>

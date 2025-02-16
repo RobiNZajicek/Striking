@@ -50,7 +50,7 @@ const ReviewsCarousel = () => {
   }, []);
 
   return (
-    <div className='relative flex flex-col items-center text-white py-16 overflow-hidden wrapper z-0'>
+    <div className='relative flex flex-col items-center text-white py-16 overflow-hidden wrapper z-0 '>
       <div className='absolute inset-0 bg-black opacity-70 z-0'></div>
       <div className='absolute inset-0' style={{ backgroundImage: `url(${rev.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
       <h2 className='relative text-[50px] font-orbion font-black text-white uppercase z-10'>Recenze</h2>
