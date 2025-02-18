@@ -71,7 +71,7 @@ export function FaqSimple() {
                 <span className="flex-1">{item.question}</span>
               </div>
             </AccordionControl>
-            <AccordionPanel className="text-white text-base leading-relaxed px-6 pb-4">
+            <AccordionPanel className="text-white text-base leading-relaxed px-6 pb-4 font-sans">
               {item.answer}
             </AccordionPanel>
           </AccordionItem>

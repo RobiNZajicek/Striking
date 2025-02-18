@@ -45,7 +45,7 @@ const Navbar = () => {
             <Link href="/Kontakt" className={`hover:text-white ${pathname === "/kontakt" ? "text-white" : ""}`}>Kontakt</Link>
           </li>
           <li>
-            <Link href="/registrace">
+            <Link href="/Registrace">
               <button className="bg-primary w-[136px] h-[48px] border-4 border-primary rounded-xl text-[16px] font-bold text-white">
                 Registrace zde
               </button>

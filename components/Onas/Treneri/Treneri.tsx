@@ -71,7 +71,7 @@ const Treneri = () => {
         {/* Hover description box */}
         {hoveredTrainer && (
           <div 
-            className='fixed bg-primary w-[400px] h-[276px] p-6  text-white rounded-xl  shadow-lg' 
+            className='fixed bg-primary w-[400px] h-[276px] p-6 z-50  text-white rounded-xl  shadow-lg' 
             style={{ top: cursorPos.y + 10, left: cursorPos.x + 10 }}
           >
             <div className='flex relative flex-col '>

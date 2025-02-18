@@ -5,14 +5,14 @@ import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import './KontaktForm.css'
 const ContactForm = () => {
   return (
-    <div className='relative'>
+    <div className='relative flex justify-center flex-col '>
 <div className='KonBlurosss'></div>
-      <h1 className='text-center font-orbion font-black text-primary text-[50px] uppercase mt-20'>Prague Striking Academy</h1>
-    <div className='flex flex-col md:flex-row items-start   text-white py-16 px-6 md:px-20 w-full   rounded-lg shadow-lg justify-center font-sans'>
+      <h1 className='text-center font-orbion font-black text-primary  text-[50px] uppercase mt-20'>Prague Striking Academy</h1>
+    <div className='flex flex-col md:flex-row items-start    text-white py-16 px-6 md:px-20  max-w-full  rounded-lg shadow-lg justify-center font-sans'>
       {/* Left Side - Form - Bigger Width */}
       
      
-      <div className='w-full md:w-2/3 p-6 flex flex-col'>
+      <div className='w-full md:w-3/5 p-6 flex flex-col'>
       
         <form className='flex flex-col flex-grow'>
           <input
@@ -32,7 +32,7 @@ const ContactForm = () => {
       </div>
 
       {/* Right Side - Contact Info */}
-      <div className='w-full md:w-1/3 p-6 flex flex-col gap-6 justify-center'>
+      <div className='w-full md:w-2/5 p-6 flex flex-col gap-6 justify-center'>
         <div className='bg-[#1C1728] h-32 p-6 rounded-xl flex items-center gap-6 w-full'>
           <FaPhoneAlt className='text-[#C060CB] text-4xl' />
           <div>
