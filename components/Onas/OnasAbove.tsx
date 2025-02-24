@@ -20,7 +20,7 @@ const OnasAbove = () => {
 
       {/* Content */}
       <div className={classes.inner}>
-        <h1 className="text-white uppercase text-[40px] sm:text-[55px] md:text-[75px] lg:text-[85px] font-black text-center">
+        <h1 className="text-white font-orbion uppercase text-[40px] sm:text-[55px] md:text-[75px] lg:text-[85px] font-black text-center">
           O nás
         </h1>
       </div>

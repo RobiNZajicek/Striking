@@ -17,7 +17,7 @@ const Proces = () => {
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"strokeWidth={1.5} stroke="currentColor" className="size-20 text-[#A05A96]">
         <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
       </svg>
-        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] '>Vyber</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>Výběr</span>
         <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>Vyberte si sport, který vám sedne.</span>
       </div>
       <div className='flex flex-col justify-center items-center w-1/4'>
@@ -26,7 +26,7 @@ const Proces = () => {
 </svg>
 
 
-        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD]'>Rozvrh</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>Rozvrh</span>
         <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8' >Podívejte se, kdy se vám to hodí.</span>
       </div>
       <div className='flex flex-col justify-center items-center w-1/4'>
@@ -34,7 +34,7 @@ const Proces = () => {
   <path fillRule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clipRule="evenodd" />
 </svg>
 
-        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD]'>Clenství</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>Členství</span>
         <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>Rozmyslete si,jak často chcete chodit</span>
       </div>
       <div className='flex flex-col justify-center items-center w-1/4'>
@@ -43,7 +43,7 @@ const Proces = () => {
   <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
 </svg>
 
-        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD]'>Trénink</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>Trénink</span>
         <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>Přijďte si <br /> zaboxovat!</span>
       </div>
     

@@ -18,7 +18,7 @@ const trainers = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
   },
   {
-    name: "DAN PESATA",
+    name: "DAN PEŠATA",
     sport: "Thaibox",
     image: dan,
     description:
@@ -71,8 +71,8 @@ const Treneri = () => {
             <div className="absolute bottom-4 left-4 text-white font-bold flex flex-row items-center justify-center">
               <div className="w-[4px] h-10 bg-primary mb-0 mr-4"></div>
               <div className="flex flex-col">
-                <span className="block text-primary font-bold text-xl font-black">{trainer.name}</span>
-                <span className="block text-gray-300 text-sm font-black">{trainer.sport}</span>
+                <span className="block text-primary text-xl font-black font-orbion">{trainer.name}</span>
+                <span className="block text-gray-300 text-sm font-black font-thin">{trainer.sport}</span>
               </div>
             </div>
           </div>
@@ -85,9 +85,9 @@ const Treneri = () => {
             style={{ top: cursorPos.y + 10, left: cursorPos.x + 10 }}
           >
             <div className="flex relative flex-col">
-              <h3 className="text-[25px] font-black">{hoveredTrainer.name}</h3>
-              <h3 className="text-[20px] font-black mb-4">{hoveredTrainer.sport}</h3>
-              <p className="font-sans font-bold text-[16px]">{hoveredTrainer.description}</p>
+              <h3 className="text-[25px] font-black font-orbion">{hoveredTrainer.name}</h3>
+              <h3 className="text-[20px] font-black mb-4 font-orbion">{hoveredTrainer.sport}</h3>
+              <p className="font-sans font-bold text-[16px] font-sans" >{hoveredTrainer.description}</p>
               <Image width={196} height={172} src={uni.src} className="absolute opacity-30 right-4 top-0" alt="logo" />
             </div>
           </div>

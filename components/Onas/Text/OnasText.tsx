@@ -8,7 +8,7 @@ const OnasText = () => {
         {/* <div className="OnasBlurosss"></div> */}
 
         {/* Title */}
-        <h1 className="font-black text-primary text-center uppercase text-[25px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px]">
+        <h1 className="font-black font-orbion text-primary text-center uppercase text-[25px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px]">
           Místo, kde rosteš s každým  tréninkem!
         </h1>
 

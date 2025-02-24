@@ -10,8 +10,8 @@ export function FaqSimple() {
   return (
     <Container size="md" className='relative'>
       {/* Nadpis sekce */}
-      <Title ta="center" className="font-black text-4xl md:text-5xl text-primary mb-8">
-        CASTÉ DOTAZY
+      <Title ta="center" className="font-black t'text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px]  text-primary mb-8 font-orbion">
+        ČASTÉ DOTAZY
       </Title>
      
         <div className={classes.FaqRight}></div>
@@ -68,7 +68,7 @@ export function FaqSimple() {
                     opened === item.value ? 'rotate-180' : ''
                   }`}
                 />
-                <span className="flex-1">{item.question}</span>
+                <span className="flex-1 font-orbion">{item.question}</span>
               </div>
             </AccordionControl>
             <AccordionPanel className="text-white text-base leading-relaxed px-6 pb-4 font-sans">

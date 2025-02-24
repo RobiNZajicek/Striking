@@ -73,7 +73,7 @@ const ReviewsCarousel = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prevIndex) => (prevIndex + 1) % (window.innerWidth < 1600 ? reviews.length : Math.ceil(reviews.length / 2)));
-    }, 5000);
+    }, 7500);
     return () => clearInterval(interval);
   }, []);
 
@@ -86,7 +86,7 @@ const ReviewsCarousel = () => {
         <div className='flex w-full transition-transform duration-[1500ms] ease-in-out'
              style={{ transform: `translateX(-${index * (window.innerWidth < 1600 ? 100 : 50)}%)`, width: `${window.innerWidth < 1600 ? reviews.length * 100 : (reviews.length / 2) * 100}%` }}>
           {reviews.map((review, i) => (
-            <div key={i} className={`${window.innerWidth < 1600 ? 'w-full' : 'w-1/2'} p-6 flex-shrink-0 flex justify-center`}>
+            <div key={i} className={`${window.innerWidth < 1300 ? 'w-full' : 'w-1/2'} p-6 flex-shrink-0 flex justify-center`}>
               <div 
                 className='relative bg-[#121212] z-30 h-[298px] p-8 rounded-xl text-white shadow-lg w-full'
                 style={{ maxWidth: maxWidth }} // Apply dynamic max-width
