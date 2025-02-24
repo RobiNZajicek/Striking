@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
 
 .wrapper {
     position: relative;
@@ -7,54 +7,29 @@
     height: 85vh;
     display: flex;
     justify-content: center;
-    background-image: url('../../assets/backgroundAbove.png');
+    align-items: center;
+    background-image: url("../../assets/backgroundAbove.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    z-index: 0; /* Keeps the background image at the base layer */
+    z-index: 0;
 }
-.heroLeft {
-    width: 330px;
-    height: 260px;
-    left: 0;
-    bottom: 12%;
-    opacity: 1;   
-    z-index: 20;
-    background-color: #A05A96;
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(382px);
-  z-index: 3;
-}
-.heroRight {
-    width: 430px;
-    height: 260px;
-    right: 0;
-    top: 2%;
-    opacity: 1;   
-    z-index: 20;
-    background-color: #A05A96;
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(282px);
-  z-index: 3;
-}
-
 
 .wrapper::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #00060E; /* Darker overlay */
-    z-index: 1; /* Overlay should be above the background image */
+    background-color: #00060e;
+    z-index: 1;
     opacity: 0.7;
 }
+
 .inner {
     position: relative;
-    z-index: 3; /* Content (text) should be above the overlay and blur */
+    z-index: 3;
 }
 
 .title {
@@ -63,54 +38,21 @@
     font-size: 85px;
     letter-spacing: -1px;
     color: white;
-    margin: 9rem;
     font-family: "Orbitron", serif;
-    font-weight: bold;
-    margin-bottom: var(--mantine-spacing-xs);
     text-transform: uppercase;
-    @media (max-width: 36em) {
-        font-size: 28px;
-        text-align: left;
-    }
-}
+    margin: 6rem 0;
 
-.highlight {
-    color: light-dark(var(--mantine-color-blue-6), var(--mantine-color-blue-4));
-}
-
-.description {
-    text-align: center;
-    font-size: 45px;
-    font-weight: bold;
-    font-family: "Orbitron", serif;
-    @media (max-width: 36em) {
-        text-align: left;
-        font-size: var(--mantine-font-size-md);
-    }
-}
-
-.controls {
-    margin-top: var(--mantine-spacing-lg);
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 20px;
-    @media (max-width: 36em) {
-        flex-direction: column;
-    }
-}
-
-.control {
-    &:not(:first-of-type) {
-        margin-left: var(--mantine-spacing-md);
+    @media (max-width: 1024px) {
+        font-size: 65px;
     }
 
-    @media (max-width: 36em) {
-        height: 42px;
-        font-size: var(--mantine-font-size-md);
-        &:not(:first-of-type) {
-            margin-top: var(--mantine-spacing-md);
-            margin-left: 0;
-        }
+    @media (max-width: 768px) {
+        font-size: 50px;
+        margin: 4rem 0;
+    }
+
+    @media (max-width: 480px) {
+        font-size: 40px;
+        margin: 2rem 0;
     }
 }

@@ -1,22 +1,24 @@
 import React from 'react'
 import './Proces.css'
 import { TiTick } from "react-icons/ti";
+import Link from 'next/link';
+
 const Proces = () => {
   return (
-    <div className='flex items-center flex-col  mt-14 h-screen relative'>
+    <div className='flex items-center flex-col  mt-14 mb-36 md:mb-72 md:0  relative'>
       
       <div className='flex flex-col gap-14  items-center'>
       <div className='bluros blurss'></div>
-      <h1 className='text-[50px] font-black'>PRVNÍ TRÉNINK ZDARMA</h1>
-      <button className="bg-primary w-[158px] h-[48px] border-4 border-primary rounded-xl text-[16px] font-bold text-white">Registrace zde</button>
+      <h1 className='text-[25px] sm:text-[30px] md:text-[35px] lg:text-[45px] xl:text-[50px] font-black'>PRVNÍ TRÉNINK ZDARMA</h1>
+      <Link href="/Registrace"  className="bg-primary z-50 flex justify-center items-center w-[158px] h-[48px] border-4 border-primary rounded-xl text-[16px] font-bold text-white pointer">Registrace zde</Link>
       </div>
-      <div className='flex flex-row gap-0 mt-32'>
+      <div className='flex flex-col md:flex-row gap-[5%] Dosxl:gap-[10%] mt-16 md:mt-32 items-center justify-center'>
       <div className='flex flex-col justify-center items-center w-1/4'>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"strokeWidth={1.5} stroke="currentColor" className="size-20 text-[#A05A96]">
         <path strokeLinecap="round" strokeLinejoin="round" d="m4.5 12.75 6 6 9-13.5"/>
       </svg>
-        <span className='text-[50px] uppercase font-black text-[#BDBDBD] '>Vyber</span>
-        <span className='font-normal text-[25px] text-[#BDBDBD] text-center w-5/6 '>Vyberte si sport, který vám sedne.</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] '>Vyber</span>
+        <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>Vyberte si sport, který vám sedne.</span>
       </div>
       <div className='flex flex-col justify-center items-center w-1/4'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-20 text-[#A05A96]">
@@ -24,16 +26,16 @@ const Proces = () => {
 </svg>
 
 
-        <span className='text-[50px] uppercase font-black text-[#BDBDBD] '>Rozvrh</span>
-        <span className='font-normal text-[25px] text-[#BDBDBD] text-center w-5/6'>Podívejte se, kdy se vám to hodí.</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD]'>Rozvrh</span>
+        <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8' >Podívejte se, kdy se vám to hodí.</span>
       </div>
       <div className='flex flex-col justify-center items-center w-1/4'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-20 text-[#A05A96]">
   <path fillRule="evenodd" d="M8 1.75a.75.75 0 0 1 .692.462l1.41 3.393 3.664.293a.75.75 0 0 1 .428 1.317l-2.791 2.39.853 3.575a.75.75 0 0 1-1.12.814L7.998 12.08l-3.135 1.915a.75.75 0 0 1-1.12-.814l.852-3.574-2.79-2.39a.75.75 0 0 1 .427-1.318l3.663-.293 1.41-3.393A.75.75 0 0 1 8 1.75Z" clipRule="evenodd" />
 </svg>
 
-        <span className='text-[50px] uppercase font-black text-[#BDBDBD]'>Clenství</span>
-        <span className='font-normal text-[25px] text-[#BDBDBD] text-center w-5/6'>Rozmyslete si,jak často chcete chodit</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD]'>Clenství</span>
+        <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>Rozmyslete si,jak často chcete chodit</span>
       </div>
       <div className='flex flex-col justify-center items-center w-1/4'>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-20 text-[#A05A96]">
@@ -41,8 +43,8 @@ const Proces = () => {
   <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
 </svg>
 
-        <span className='text-[50px] uppercase font-black text-[#BDBDBD]'>Trénink</span>
-        <span className='font-normal text-[25px] text-[#BDBDBD] text-center w-5/6'>Přijďte si <br /> zaboxovat!</span>
+        <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD]'>Trénink</span>
+        <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>Přijďte si <br /> zaboxovat!</span>
       </div>
     
       </div>

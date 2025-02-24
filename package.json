@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@fontsource/space-grotesk": "^5.1.1",
+    "@headlessui/react": "^2.2.0",
     "@mantine/core": "^7.16.3",
     "@mantine/hooks": "^7.16.3",
     "@radix-ui/react-dialog": "^1.1.6",

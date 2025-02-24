@@ -1,8 +1,13 @@
+import CenikAbove from '@/components/Cenik/CenikAbove/CenikAbove'
+import PricingComponent from '@/components/Cenik/PricingComponent'
 import React from 'react'
 
 const Cenik = () => {
   return (
-    <div>Cenik</div>
+    <div>
+      <CenikAbove/>
+      <PricingComponent/>
+      </div>
   )
 }
 

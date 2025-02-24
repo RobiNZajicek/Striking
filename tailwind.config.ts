@@ -17,6 +17,8 @@ container:{
     md:'768px',
     lg:'960px',
     xl:'1200px',
+    Dosxl:'1536px',
+    'max-900': { max: '900px' },
 
 },
 fontFamily: {

@@ -1,30 +1,36 @@
-/* .wrapper {
-    padding-top: calc(var(--mantine-spacing-xl) * 2);
-    padding-bottom: calc(var(--mantine-spacing-xl) * 2);
-    min-height: 650px;
-  }
-  
-  .title {
-    margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
-    font-size: 50px;
-    
-  }
-  
-  .item {
-    border-radius: var(--mantine-radius-md);
-    margin-bottom: var(--mantine-spacing-lg);
-    border: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
-  } */
-   .FaqRight{
-    width: 530px;
-    height: 460px;
-    right: 0;
-    bottom:  2%;
-    opacity: 1;   
-    z-index: 20;
-    background-color: #A05A96;
+.FaqRight {
   position: absolute;
+  width: 400px;
+  height: 350px;
+  right: 5%;
+  top: 20%;
+  background-color: #A05A96;
+  filter: blur(200px);
   border-radius: 50%;
-  filter: blur(400px);
-  z-index: 3;
-   }
+  z-index: -1; /* Moves the blur BEHIND the FAQ */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .FaqRight {
+      width: 300px;
+      height: 250px;
+      top: 25%;
+  }
+}
+
+@media (max-width: 768px) {
+  .FaqRight {
+      width: 250px;
+      height: 200px;
+      top: 30%;
+  }
+}
+
+@media (max-width: 480px) {
+  .FaqRight {
+      width: 200px;
+      height: 150px;
+      top: 35%;
+  }
+}

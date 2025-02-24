@@ -1,9 +1,10 @@
+import RegistrationForm from '@/components/Registrace/RegistraceForm'
 import React from 'react'
 
 const Registrace = () => {
   return (
     <div>
-        registrace
+        <RegistrationForm/>
     </div>
   )
 }
