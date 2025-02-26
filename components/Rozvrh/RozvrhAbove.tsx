@@ -24,7 +24,7 @@ const RozvrhAbove = () => {
       <motion.div
         className="absolute flex flex-row z-40 top-96 -left-40 rotate-90 gap-4 text-[20px] justify-center items-center before:content-[''] before:w-20 before:h-[2px] before:bg-[#BDBDBD] before:inline-block before:mr-2 after:content-[''] after:w-20 after:h-[2px] after:bg-[#BDBDBD] after:inline-block after:ml-2"
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         variants={fadeIn}
         viewport={{ once: true }}
       />
@@ -36,7 +36,7 @@ const RozvrhAbove = () => {
       <motion.div
         className={classes.inner}
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         variants={fadeInUp}
         viewport={{ once: true }}
       >

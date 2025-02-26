@@ -11,3 +11,9 @@
   filter: blur(280px);
   z-index: 3;
    }
+   @media(max-width:768px){
+    .TreninkBlurosss{
+      width: 200px;
+      height: 200px;
+    }
+   }

@@ -5,7 +5,7 @@ import { FaqSimple } from '@/components/FaQ/FaqSimple';
 
 const Page = () => {  
   return (
-    <div>
+    <div >
       <HeroText/>
       <Proces/>
       <FaqSimple/>

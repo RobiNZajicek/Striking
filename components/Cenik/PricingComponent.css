@@ -24,3 +24,17 @@
   filter: blur(280px);
   z-index: 1;
    }
+   @media (max-width:768px){
+    .TreninkBlurosss{
+      width: 200px;
+      filter: blur(100px);
+      height:240px;
+    }
+    .TreninkBlurosssDos{
+      width: 200px;
+      filter: blur(100px);
+      height:250px;
+      bottom: 10%;
+    }
+   }
+   

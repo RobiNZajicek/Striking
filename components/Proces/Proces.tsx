@@ -37,7 +37,7 @@ const Proces = () => {
 
       {/* Title and Registration Button */}
       <motion.div
-        className='flex flex-col gap-10 items-center'
+        className='flex flex-col gap-8 items-center'
         variants={fadeInUp}
       >
         <h1 className='text-[22px] sm:text-[30px] md:text-[35px] lg:text-[45px] xl:text-[50px] font-black text-center'>
@@ -45,7 +45,7 @@ const Proces = () => {
         </h1>
         <Link
           href='/Registrace'
-          className='bg-primary flex items-center justify-center font-sans w-[120px] sm:w-[140px] md:w-[160px] lg:w-[187px] h-[36px] sm:h-[40px] md:h-[44px] lg:h-[48px] border-2 border-primary rounded-xl text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-bold text-white'
+          className='bg-primary flex items-center justify-center font-sans w-[120px] sm:w-[140px] md:w-[160px] lg:w-[160px]  h-[36px] sm:h-[40px] md:h-[44px] lg:h-[45px] Dosxl:w-[187px] Dosxl:h-[48px]  border-2  border-primary rounded-xl text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-bold text-white'
         >
           Registrace zde
         </Link>
@@ -61,23 +61,16 @@ const Proces = () => {
           className='flex flex-col justify-center items-center w-1/4'
           variants={fadeInUp}
         >
-          <svg
-            xmlns='http://www.w3.org/2000/svg'
-            viewBox='0 0 24 24'
-            fill='currentColor'
-            className='lg:size-20 size-16 text-primary'
-          >
-            <path
-              fillRule='evenodd'
-              d='M3 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 5.25Zm0 4.5A.75.75 0 0 1 3.75 9h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 9.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Zm0 4.5a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z'
-              clipRule='evenodd'
-            />
-          </svg>
-          <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>
+         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="lg:size-20 size-14 mt-4 text-primary">
+  <path fillRule="evenodd" d="M8.25 6.75a3.75 3.75 0 1 1 7.5 0 3.75 3.75 0 0 1-7.5 0ZM15.75 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM2.25 9.75a3 3 0 1 1 6 0 3 3 0 0 1-6 0ZM6.31 15.117A6.745 6.745 0 0 1 12 12a6.745 6.745 0 0 1 6.709 7.498.75.75 0 0 1-.372.568A12.696 12.696 0 0 1 12 21.75c-2.305 0-4.47-.612-6.337-1.684a.75.75 0 0 1-.372-.568 6.787 6.787 0 0 1 1.019-4.38Z" clipRule="evenodd" />
+  <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
+</svg>
+
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Výběr
           </span>
-          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
-            Vyberte si sport, který vám sedne.
+          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px]  text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
+            Vyberte si sport, který vám sedne. 
           </span>
         </motion.div>
 
@@ -90,7 +83,7 @@ const Proces = () => {
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
             fill='currentColor'
-            className='lg:size-20 size-16 mt-4 text-primary'
+            className='lg:size-20 size-14 mt-4 text-primary'
           >
             <path d='M12 11.993a.75.75 0 0 0-.75.75v.006c0 .414.336.75.75.75h.006a.75.75 0 0 0 .75-.75v-.006a.75.75 0 0 0-.75-.75H12ZM12 16.494a.75.75 0 0 0-.75.75v.005c0 .414.335.75.75.75h.005a.75.75 0 0 0 .75-.75v-.005a.75.75 0 0 0-.75-.75H12ZM8.999 17.244a.75.75 0 0 1 .75-.75h.006a.75.75 0 0 1 .75.75v.006a.75.75 0 0 1-.75.75h-.006a.75.75 0 0 1-.75-.75v-.006ZM7.499 16.494a.75.75 0 0 0-.75.75v.005c0 .414.336.75.75.75h.005a.75.75 0 0 0 .75-.75v-.005a.75.75 0 0 0-.75-.75H7.5ZM13.499 14.997a.75.75 0 0 1 .75-.75h.006a.75.75 0 0 1 .75.75v.005a.75.75 0 0 1-.75.75h-.006a.75.75 0 0 1-.75-.75v-.005ZM14.25 16.494a.75.75 0 0 0-.75.75v.006c0 .414.335.75.75.75h.005a.75.75 0 0 0 .75-.75v-.006a.75.75 0 0 0-.75-.75h-.005ZM15.75 14.995a.75.75 0 0 1 .75-.75h.005a.75.75 0 0 1 .75.75v.006a.75.75 0 0 1-.75.75H16.5a.75.75 0 0 1-.75-.75v-.006ZM13.498 12.743a.75.75 0 0 1 .75-.75h2.25a.75.75 0 1 1 0 1.5h-2.25a.75.75 0 0 1-.75-.75ZM6.748 14.993a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z' />
             <path
@@ -99,10 +92,10 @@ const Proces = () => {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Rozvrh
           </span>
-          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
+          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD]  text-center w-[250px] md:w-5/6 font-sans mb-8'>
             Podívejte se, kdy se vám to hodí.
           </span>
         </motion.div>
@@ -116,7 +109,7 @@ const Proces = () => {
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 16 16'
             fill='currentColor'
-            className='lg:size-20 size-16 mt-4 text-[#A05A96]'
+            className='lg:size-20 size-14 mt-4 text-[#A05A96]'
           >
             <path
               fillRule='evenodd'
@@ -124,7 +117,7 @@ const Proces = () => {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Členství
           </span>
           <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
@@ -141,7 +134,7 @@ const Proces = () => {
             xmlns='http://www.w3.org/2000/svg'
             viewBox='0 0 24 24'
             fill='currentColor'
-            className='lg:size-20 size-16 mt-4 text-primary'
+            className='lg:size-20 size-14 mt-4 text-primary'
           >
             <path
               fillRule='evenodd'
@@ -149,7 +142,7 @@ const Proces = () => {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] uppercase font-black text-[#BDBDBD] font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Trénink
           </span>
           <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-3/6 font-sans mb-8'>

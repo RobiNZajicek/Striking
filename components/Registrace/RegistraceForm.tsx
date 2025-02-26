@@ -56,7 +56,7 @@ const RegistrationForm = () => {
       <motion.div
         className="relative w-[100%] md:w-[90%] bg-[#00060E]/90 p-4 md:p-10 rounded-xl shadow-lg flex flex-col lg:flex-row items-center lg:items-start justify-between"
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         variants={staggerChildren}
         viewport={{ once: true }}
       >

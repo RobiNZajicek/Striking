@@ -17,7 +17,7 @@ const CenikAbove = () => {
   };
   return (
     <motion.div className={classes.wrapper} initial="hidden"
-    whileInView="visible"
+    animate="visible"
     variants={fadeIn}
     viewport={{ once: true }}>
         <div className={classes.heroLeft}></div>
@@ -29,7 +29,7 @@ const CenikAbove = () => {
       <Image src={AboveCen} alt="Background" layout="fill" objectFit="cover" />
       <motion.div className={classes.inner}
         initial="hidden"
-        whileInView="visible"
+        animate="visible"
         variants={fadeInUp}
         viewport={{ once: true }} >
         <Title className={classes.title} >Ceník</Title>

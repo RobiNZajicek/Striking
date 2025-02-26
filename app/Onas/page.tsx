@@ -7,7 +7,7 @@ const Onas = () => {
   return (
     <div>
         <OnasAbove/>
-        <OnasText/>
+        {/* <OnasText/> */}
         <Treneri/>
         <ReviewsCarousel/>
     </div>

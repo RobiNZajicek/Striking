@@ -20,12 +20,12 @@ const reviews = [
   },
   { 
     name: 'F Thai', 
-    review: 'Výborná Tělocvična! Mně jako cizinci z Německa se školení velmi líbilo a byl jsem tam vítán jako každý jiný. Vedle profesionálního školení a dobrého školícího zařízení jsou dva velmi milí trenéři, kteří tvrdě pracují a pomáhají bez ohledu na úroveň vašich dovedností. Kluci moc děkuji, obohatili jste můj pobyt v Praze o dobrý trénink',
+    review: 'Výborná Tělocvična! Mně jako cizinci z Německa se školení velmi líbilo a byl jsem tam vítán jako každý jiný. Vedle profesionálního školení a dobrého školícího zařízení jsou dva velmi milí trenéři, kteří tvrdě pracují a pomáhají bez ohledu na úroveň vašich dovedností',
     stars: 5
   },
   { 
     name: 'Lukáš Kvasnička', 
-    review: 'Super gym na trénink thajského boxu a kickboxu. Vítáni jsou zde všichni, jak začátečníci, tak pokročilí zápasníci. Oba trenéři Kuba a Dan vše do podrobna vysvětlí a naučí spoustu technik. Výklad je zde hodně podrobný, člověk se zde vybouchá i na lapách a pořádně zapotí. Na každém tréninku se jede i kardio a posilování celého těla. Sparingy jsou zde dobrovolné, vše záleží na domluvě s parťákem. Skvělý gym, který doporučuji',
+    review: 'Super gym na trénink thajského boxu a kickboxu trenéři vše do podrobna vysvětlí a naučí spoustu technik. Výklad je zde hodně podrobný, člověk se zde vybouchá i na lapách a pořádně zapotí. Na každém tréninku se jede i kardio a posilování celého těla. Sparingy jsou zde dobrovolné, vše záleží na domluvě s parťákem.',
     stars: 5
   },
   { 
@@ -55,11 +55,17 @@ const ReviewsCarousel = () => {
       } else if (width >= 900 && width < 1200) {
         setMaxWidth('800px'); // 900px - 1200px
       } else if (width >= 600 && width < 900) {
-        setMaxWidth('500px'); // 600px - 900px
-      } else if (width >= 450 && width < 600) {
-        setMaxWidth('450px'); 
-      } else if (width >= 350 && width < 450) {
+        setMaxWidth('600px'); // 600px - 900px
+      } else if (width >= 550 && width < 600) {
+        setMaxWidth('550px'); 
+      } else if (width >= 450 && width < 550) {
+        setMaxWidth('450px');
+      } else if (width >= 400 && width < 450) {
+        setMaxWidth('400px');
+      } else if (width >= 350 && width < 400) {
         setMaxWidth('350px'); // 350px - 600px
+      } else if (width >= 300 && width < 350) {
+        setMaxWidth('300px'); // 350px - 600px
       } else {
         setMaxWidth('none'); // Fallback
       }
@@ -123,7 +129,7 @@ const ReviewsCarousel = () => {
               variants={fadeInUp}
             >
               <div 
-                className='relative bg-[#121212] z-30 h-[328px] p-8 rounded-xl text-white shadow-lg w-full'
+                className='relative bg-[#121212] z-30 h-[285px] sm:h-[270px] md:h-[260px]  lg:h-[310px] xl:h-[328px] p-4 md:p-8 rounded-xl text-white shadow-lg w-full'
                 style={{ maxWidth: maxWidth }} // Apply dynamic max-width
               >
                 <div className='flex text-2xl'>
@@ -131,7 +137,7 @@ const ReviewsCarousel = () => {
                     <span key={idx} className='text-primary text-4xl'>★</span>
                   ))}
                 </div>
-                <p className='mt-6 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[18px] text-white z-20 font-sans h-36'>{review.review}</p>
+                <p className='mt- sm:mt-2 md:mt-4 xl:mt-6 text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-white z-20 font-sans h-40 sm:h-36 md:h-24 lg:h-32 xl:h-36'>{review.review}</p>
                 <p className='mt-6 font-bold text-primary text-xl z-20 font-sans'>{review.name}</p>
                 <Image width={196} height={172} src={uni.src} className='z-index z-0 absolute opacity-20 w-[250px] h-[250px] right-4 top-4' alt="logo"></Image>
               </div>

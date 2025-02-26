@@ -36,18 +36,8 @@ const OnasText = () => {
           className="flex flex-col gap-8 sm:gap-10 md:gap-12 justify-center items-center mt-8 sm:mt-10 md:mt-12"
           variants={staggerChildren}
         >
-          <motion.span
-            className="text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-center font-medium text-[#BDBDBD] w-4/6 sm:w-4/6 md:w-4/6 lg:w-3/6 Dosxl:1/6 font-sans"
-            variants={fadeInUp}
-          >
-            Jsme mladý ambiciózní klub s jasným cílem posunu našich klientů v oblasti bojových sportů. Náš tým zkušených trenérů vás provede od základů až po pokročilou úroveň.
-          </motion.span>
-          <motion.span
-            className="text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-center font-medium text-[#BDBDBD] w-4/6 sm:w-4/6 md:w-4/6 lg:w-3/6 Dosxl:1/6 font-sans"
-            variants={fadeInUp}
-          >
-            Vítáni jsou jak úplní nováčci, tak pokročilí cvičenci - bez i se zápasovou zkušeností. Na pohlaví ani věku nezáleží, zaregistrujte sebe či své dítě na trénink, který vám vyhovuje, a přijďte!
-          </motion.span>
+          
+          
         </motion.div>
       </div>
     </motion.div>

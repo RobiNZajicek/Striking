@@ -22,7 +22,7 @@ const Navbar = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="bg-[#00060E] text-white py-5 px-[5%] flex justify-between items-center relative"
+      className="bg-[#00060E] text-white p-5 xl:py-4 Dosxl:py-5 px-[5%] flex justify-between items-center relative"
     >
       {/* Left side: Logo */}
       <div className="flex items-center">
@@ -32,7 +32,7 @@ const Navbar = () => {
             height={45}
             src={logo.src}
             alt="logo"
-            className="cursor-pointer w-[200px] h-[42px] xl:w-[275px] xl:h-[45px]"
+            className="cursor-pointer w-[200px] h-[42px] xl:w-[245px] xl:h-[40px] Dosxl:w-[275px] Dosxl:h-[45px]"
           />
         </Link>
       </div>
@@ -40,22 +40,22 @@ const Navbar = () => {
       {/* Desktop Navigation (Hidden on mobile) */}
       <nav className="hidden lg:flex flex-col justify-center items-end gap-4">
         <div className="flex gap-8 xl:gap-12">
-          <span className="flex items-center gap-2 font-sans text-[14px] xl:text-[18px]">
+          <span className="flex items-center gap-2 font-sans text-[13px] sm:text-[13px] md:text-[13px] lg:text-[14px]  xl:text-[15px]  Dosxl:text-[20px]">
             <BsTelephone size={20} className="text-primary" />
             +420 728 652 065
           </span>
-          <span className="flex items-center gap-2 font-sans text-[14px] xl:text-[18px]">
+          <span className="flex items-center gap-2 font-sans text-[15px] sm:text-[16px] md:text-[15px] xl:text-[15px]  Dosxl:text-[20px] lg:text-[20px]">
             <MdOutlineMail size={20} className="text-primary" />
             prague.striking.academy@gmail.com
           </span>
         </div>
 
-        <ul className="flex gap-8 xl:gap-14 font-bold text-[14px] xl:text-[18px] font-sans items-center text-[#BDBDBD]">
+        <ul className="flex gap-8 xl:gap-8 Dosxl:gap-14 font-bold text-[14px] xl:text-[18px] font-sans items-center text-[#BDBDBD]">
           {["Onas", "Cenik", "Rozvrh", "Kontakt"].map((item) => (
             <li key={item}>
               <Link
                 href={`/${item}`}
-                className={`hover:text-white ${
+                className={`hover:text-white xl:text-[15px]  Dosxl:text-[20px] ${
                   pathname === `/${item.toLowerCase()}` ? "text-white" : ""
                 }`}
               >
@@ -65,7 +65,7 @@ const Navbar = () => {
           ))}
           <li>
             <Link href="/Registrace">
-              <button className="bg-primary xl:w-[136px] xl:h-[48px] w-[115px] h-[40px] border-4 border-primary rounded-xl text-[14px] xl:text-[18px] font-bold text-white">
+              <button className="bg-primary Dosxl:w-[136px] Dosxl:h-[48px] xl:w-[120px] xl:h-[40px] w-[115px] h-[40px] border-4 border-primary rounded-xl xl:text-[15px]  Dosxl:text-[18px] font-bold text-white">
                 Registrace zde
               </button>
             </Link>
@@ -102,7 +102,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Links */}
           <ul className="flex flex-col items-center gap-10 font-bold text-[24px]">
-            {["Onas", "Cenik", "Rozvrh", "Kontakt"].map((item) => (
+            {["Onas", "Ceník", "Rozvrh", "Kontakt"].map((item) => (
               <li key={item}>
                 <Link
                   href={`/${item}`}
