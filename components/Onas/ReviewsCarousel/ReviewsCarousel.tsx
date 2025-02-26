@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion'; // Import Framer Motion
 import rev from '@/assets/rev.jpeg';
 import './ReviewsCarousel.css';
 import Image from 'next/image';
@@ -18,23 +19,23 @@ const reviews = [
     stars: 5
   },
   { 
-    name: 'Marek Novotný', 
-    review: 'Tréninky jsou skvělé a velmi intenzivní. Doporučuji všem, kteří se chtějí zlepšit a posunout na vyšší úroveň.',
+    name: 'F Thai', 
+    review: 'Výborná Tělocvična! Mně jako cizinci z Německa se školení velmi líbilo a byl jsem tam vítán jako každý jiný. Vedle profesionálního školení a dobrého školícího zařízení jsou dva velmi milí trenéři, kteří tvrdě pracují a pomáhají bez ohledu na úroveň vašich dovedností. Kluci moc děkuji, obohatili jste můj pobyt v Praze o dobrý trénink',
     stars: 5
   },
   { 
-    name: 'Petr Havel', 
-    review: 'Super atmosféra, profesionální přístup a skvělí lidé. Doporučuji všem, kdo chtějí začít s bojovými sporty.',
-    stars: 4
-  },
-  { 
-    name: 'Jana Králová', 
-    review: 'Tréninky jsou výborné, Kuba je skvělý trenér a ví, jak motivovat.',
+    name: 'Lukáš Kvasnička', 
+    review: 'Super gym na trénink thajského boxu a kickboxu. Vítáni jsou zde všichni, jak začátečníci, tak pokročilí zápasníci. Oba trenéři Kuba a Dan vše do podrobna vysvětlí a naučí spoustu technik. Výklad je zde hodně podrobný, člověk se zde vybouchá i na lapách a pořádně zapotí. Na každém tréninku se jede i kardio a posilování celého těla. Sparingy jsou zde dobrovolné, vše záleží na domluvě s parťákem. Skvělý gym, který doporučuji',
     stars: 5
   },
   { 
-    name: 'Tomáš Dvořák', 
-    review: 'Díky Kubovi jsem se hodně zlepšil a získal větší sebevědomí. Velmi doporučuji.',
+    name: 'Karolína Janečková', 
+    review: 'Za mě super!',
+    stars: 5
+  },
+  { 
+    name: 'Robin Zajíček', 
+    review: 'Úžasný gym! Když jsem začal s thajským boxem/kickboxem, netušil jsem, co od toho očekávat. V strikingu mě a mého bratra přivítali velmi hezky a každý trénink byl vidět progres. Přístup trenérů je také skvělý. ',
     stars: 5
   }
 ];
@@ -57,8 +58,8 @@ const ReviewsCarousel = () => {
         setMaxWidth('500px'); // 600px - 900px
       } else if (width >= 450 && width < 600) {
         setMaxWidth('450px'); 
-      }else if (width >= 350 && width < 450) {
-          setMaxWidth('350px'); // 350px - 600px
+      } else if (width >= 350 && width < 450) {
+        setMaxWidth('350px'); // 350px - 600px
       } else {
         setMaxWidth('none'); // Fallback
       }
@@ -77,18 +78,52 @@ const ReviewsCarousel = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  const staggerChildren = {
+    visible: { transition: { staggerChildren: 0.2 } },
+  };
+
   return (
-    <div className='relative flex flex-col items-center text-white py-16 overflow-hidden wrapper z-0'>
+    <motion.div
+      className='relative flex flex-col items-center text-white py-16 overflow-hidden wrapper z-0'
+      initial="hidden"
+      whileInView="visible"
+      variants={staggerChildren}
+      viewport={{ once: true }}
+    >
       <div className='absolute inset-0 bg-black opacity-70 z-0'></div>
       <div className='absolute inset-0' style={{ backgroundImage: `url(${rev.src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
-      <h2 className='relative text-[50px] font-orbion font-black text-white uppercase z-10'>Recenze</h2>
-      <div className='relative flex gap-6 mt-8 w-full justify-center z-10' style={{ overflow: 'hidden', height: '400px' }}>
-        <div className='flex w-full transition-transform duration-[1500ms] ease-in-out'
-             style={{ transform: `translateX(-${index * (window.innerWidth < 1600 ? 100 : 50)}%)`, width: `${window.innerWidth < 1600 ? reviews.length * 100 : (reviews.length / 2) * 100}%` }}>
+      <motion.h2
+        className='relative text-[50px] font-orbion font-black text-white uppercase z-10'
+        variants={fadeInUp}
+      >
+        Recenze
+      </motion.h2>
+      <motion.div
+        className='relative flex gap-6 mt-8 w-full justify-center z-10'
+        style={{ overflow: 'hidden', height: '400px' }}
+        variants={staggerChildren}
+      >
+        <motion.div
+          className='flex w-full transition-transform duration-[1500ms] ease-in-out'
+          style={{ transform: `translateX(-${index * (window.innerWidth < 1600 ? 100 : 50)}%)`, width: `${window.innerWidth < 1600 ? reviews.length * 100 : (reviews.length / 2) * 100}%` }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut' }}
+        >
           {reviews.map((review, i) => (
-            <div key={i} className={`${window.innerWidth < 1300 ? 'w-full' : 'w-1/2'} p-6 flex-shrink-0 flex justify-center`}>
+            <motion.div
+              key={i}
+              className={`${window.innerWidth < 1600 ? 'w-full' : 'w-1/2'} p-6 flex-shrink-0 flex justify-center`}
+              variants={fadeInUp}
+            >
               <div 
-                className='relative bg-[#121212] z-30 h-[298px] p-8 rounded-xl text-white shadow-lg w-full'
+                className='relative bg-[#121212] z-30 h-[328px] p-8 rounded-xl text-white shadow-lg w-full'
                 style={{ maxWidth: maxWidth }} // Apply dynamic max-width
               >
                 <div className='flex text-2xl'>
@@ -96,15 +131,15 @@ const ReviewsCarousel = () => {
                     <span key={idx} className='text-primary text-4xl'>★</span>
                   ))}
                 </div>
-                <p className='mt-6 text-lg text-white z-20 font-sans h-28'>{review.review}</p>
+                <p className='mt-6 text-[12px] sm:text-[13px] md:text-[14px] lg:text-[18px] text-white z-20 font-sans h-36'>{review.review}</p>
                 <p className='mt-6 font-bold text-primary text-xl z-20 font-sans'>{review.name}</p>
                 <Image width={196} height={172} src={uni.src} className='z-index z-0 absolute opacity-20 w-[250px] h-[250px] right-4 top-4' alt="logo"></Image>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
-    </div>
+        </motion.div>
+      </motion.div>
+    </motion.div>
   );
 };
 

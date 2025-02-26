@@ -1,9 +1,11 @@
+'use client'
 import { Container, Text, Title } from "@mantine/core";
 import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 import Image from "next/image";
 import background from "@/assets/backgroundAbove.png";
 import classes from "./HeroText.module.css";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 export function HeroText() {
   return (
@@ -16,34 +18,44 @@ export function HeroText() {
       <div className={classes.heroRight}></div>
 
       {/* Social Icons - Positioned Responsively */}
-      <div className="absolute flex left-5% flex-row z-40 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] justify-center items-center gap-2 sm:gap-3 lg:gap-4 
-        top-[65%] sm:top-[75%] md:top-[80%]   xl:top-[50%] xl:left-[5%] xl:-translate-x-1/2 xl:rotate-90 
+      <motion.div 
+        initial={{opacity:0,rotateZ:90,x:-230}}
+        whileInView={{opacity:1,rotateZ:90,x:-180}}
+        transition={{ duration: 0.5, ease: "linear" ,delay:1.5}}
+        viewport={{ once: true }}
+        className="absolute flex left-5% flex-row z-40 text-[12px] sm:text-[14px] md:text-[16px] lg:text-[18px] justify-center items-center gap-2 sm:gap-3 lg:gap-4 
+        top-[65%] sm:top-[75%] md:top-[80%]   xl:top-[50%] xl:left-[1%] xl:-translate-x-1/2 xl:rotate-90 
         before:content-[''] before:w-10 sm:before:w-14 md:before:w-16 lg:before:w-20 before:h-[2px] before:bg-[#BDBDBD] before:inline-block before:mr-1 sm:before:mr-2 
         after:content-['']  after:w-10 sm:after:w-14 md:after:w-16 lg:after:w-20 after:h-[2px] after:bg-[#BDBDBD] after:inline-block after:ml-1 sm:after:ml-2">
         
         <div className="flex items-center gap-4">
-  <span className="text-[#BDBDBD] z-50">Sledujte nás :</span>
-  
-  <a href="https://www.instagram.com/praguestrikingacademy/" target="_blank" rel="noopener noreferrer">
-    <FaInstagram size={24} className="text-white hover:text-primary transition duration-300" />
-  </a>
-
-  <a href="https://www.facebook.com/Praguestrikingacademy?locale=cs_CZ" target="_blank" rel="noopener noreferrer">
-    <FaFacebookF size={24} className="text-white hover:text-primary transition duration-300" />
-  </a>
-
-  <a href="https://www.youtube.com/@Fit2Fight" target="_blank" rel="noopener noreferrer">
-    <FaYoutube size={24} className="text-white hover:text-primary transition duration-300" />
-  </a>
-</div>
-
-      </div>
+          <span className="text-[#BDBDBD] xl:flex hidden z-50 font-orbion">Sledujte nás :</span>
+          
+          <a href="https://www.instagram.com/praguestrikingacademy/" target="_blank" rel="noopener noreferrer">
+            <FaInstagram size={24} className="text-white hover:text-primary transition duration-300 size-[15px] sm:size-[16px] md:size-[15px] lg:size-[20px]" />
+          </a>
+          
+          <a href="https://www.facebook.com/Praguestrikingacademy?locale=cs_CZ" target="_blank" rel="noopener noreferrer">
+            <FaFacebookF size={24} className="text-white hover:text-primary transition duration-300 size-[15px] sm:size-[16px] md:size-[15px] lg:size-[20px]" />
+          </a>
+          
+          <a href="https://www.youtube.com/@Fit2Fight" target="_blank" rel="noopener noreferrer">
+            <FaYoutube size={24} className="text-white hover:text-primary transition duration-300 size-[15px] sm:size-[16px] md:size-[15px] lg:size-[20px]" />
+          </a>
+        </div>
+      </motion.div>
 
       {/* Background Image */}
       <Image src={background} alt="Background" layout="fill" objectFit="cover" className="z-0" />
 
       {/* Content Section */}
-      <div className="relative z-50 flex flex-col items-center text-center text-white px-4 sm:px-6">
+      <motion.div 
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true }}
+        className="relative z-50 flex flex-col items-center text-center text-white px-4 sm:px-6"
+      >
         <Title className="text-[28px] font-orbion sm:text-[40px] md:text-[50px] lg:text-[65px] xl:text-[85px] font-black text-[#A05A96] uppercase">
           Nauč se Muay Thai
         </Title>
@@ -55,15 +67,21 @@ export function HeroText() {
         </Container>
 
         {/* Buttons */}
-        <div className="flex  sm:flex-row gap-3 sm:gap-6 justify-center items-center mt-4 sm:mt-8">
-          <Link href="/Rozvrh" className="bg-primary flex items-center justify-center font-sans w-[120px] sm:w-[140px] md:w-[160px] lg:w-[187px] h-[36px] sm:h-[40px] md:h-[44px] lg:h-[48px] border-4 border-primary rounded-xl text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-bold text-white">
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="flex sm:flex-row gap-3 sm:gap-6 justify-center items-center mt-4 sm:mt-8"
+        >
+          <Link href="/Rozvrh" className="bg-primary flex items-center justify-center font-sans w-[120px] sm:w-[140px] md:w-[160px] lg:w-[187px] h-[36px] sm:h-[40px] md:h-[44px] lg:h-[48px] border-2 border-primary rounded-xl text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-bold text-white">
             Zobrazit rozvrh
           </Link>
-          <Link href="/Registrace" className="bg-primary flex items-center justify-center font-sans w-[120px] sm:w-[140px] md:w-[160px] lg:w-[187px] h-[36px] sm:h-[40px] md:h-[44px] lg:h-[48px] border-4 border-primary rounded-xl text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-bold text-white">
+          <Link href="/Registrace" className="bg-primary flex items-center justify-center font-sans w-[120px] sm:w-[140px] md:w-[160px] lg:w-[187px] h-[36px] sm:h-[40px] md:h-[44px] lg:h-[48px] border-2 border-primary rounded-xl text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] font-bold text-white">
             Přidej se k nám
           </Link>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }

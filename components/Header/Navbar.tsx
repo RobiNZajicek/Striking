@@ -7,14 +7,23 @@ import { BsTelephone } from "react-icons/bs";
 import { MdOutlineMail } from "react-icons/md";
 import { FiMenu, FiX } from "react-icons/fi"; // Hamburger & Close icons
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import logo from "@/assets/logo-striking.webp";
 
 const Navbar = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <header className="bg-[#00060E] text-white py-5 px-[5%] flex justify-between items-center relative">
+    <motion.header
+      ref={ref}
+      initial={{ opacity: 0, y: -20 }}
+      animate={inView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="bg-[#00060E] text-white py-5 px-[5%] flex justify-between items-center relative"
+    >
       {/* Left side: Logo */}
       <div className="flex items-center">
         <Link href="/">
@@ -75,7 +84,13 @@ const Navbar = () => {
 
       {/* Full-Screen Mobile Menu */}
       {isOpen && (
-        <div className="fixed top-0 left-0 w-screen h-screen bg-[#00060E] text-white flex flex-col items-center justify-center z-50 transition-opacity duration-300 opacity-100">
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="fixed top-0 left-0 w-screen h-screen bg-[#00060E] text-white flex flex-col items-center justify-center z-50"
+        >
           {/* Close button */}
           <button
             className="absolute top-5 right-5 text-3xl"
@@ -121,9 +136,9 @@ const Navbar = () => {
               prague.striking.academy@gmail.com
             </span>
           </div>
-        </div>
+        </motion.div>
       )}
-    </header>
+    </motion.header>
   );
 };
 

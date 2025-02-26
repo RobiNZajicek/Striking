@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion'; // Import Framer Motion
 import Image from 'next/image';
 import uni from '@/assets/uni.png';
 import './RozvrhTable.css';
@@ -22,6 +23,7 @@ const trainingColors = {
   'Grappling': 'lg:border-l-4 border-l-2 border-yellow-500 pl-2',
   'Kruhový Trénink': 'lg:border-l-4 border-l-2 border-primary pl-2'
 };
+
 const trainingInfo = {
   'Kickbox': 'Dynamické lekce zaměřené na kickbox, důraz na správné technické provedení úderů a na kondici. Doporučeno pro všechny zkušenostní kategorie.',
   'Thaibox': 'Komplexní bojový sport obsahující údery pěstmi, lokty, koleny, nohama, strhy a spoustu dalšího. Doporučeno pro všechny zkušenostní kategorie. Fyzický kontakt není povinný.',
@@ -31,6 +33,7 @@ const trainingInfo = {
   'Grappling': 'Lekce grapplingu vhodné pro úplné začátečníky a mírně pokročilé. Na tyto tréninky prosíme kraťasy bez kapes/legíny; uplné tričko (ideálně rashguard); ostříhané nehty a zvýšenou pozornost na hygienu.',
   'Kruhový Trénink': 'Lekce, kde posilujeme celé tělo metodou kruhového tréninku. Cvičení spočívá v několika stanovištích, které trvají určitou dobu. Mezi stanovištěmi je krátká pauza. Tréninky jsou zaměřeny na budování kondice, síly a výbušnosti.'
 };
+
 const trainerInfo = {
   'KB & K1': 'Trenér: Kuba',
   'Thaibox': 'Trenér: Dan',
@@ -64,11 +67,42 @@ const Schedule = () => {
     setSelectedTraining(null);
   };
 
+  // Animation variants
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
+  };
+
   return (
-    <div className='relative text-white py-16 px-4 sm:px-8 max-w-7xl mx-auto font-sans rounded-xl mt-16'>
+    <motion.div
+      className='relative text-white py-16 px-4 sm:px-8 max-w-7xl mx-auto font-sans rounded-xl mt-16'
+      initial="hidden"
+      whileInView="visible"
+      variants={fadeInUp}
+      viewport={{ once: true }}
+    >
       <div className='susosBluros'></div>
-      <Image src={uni} alt='Striking Academy Logo' className='absolute inset-0 w-[400px] h-[400px] top-36 opacity-10 mx-auto' style={{ left: '33%', transform: 'translateX(-50%)' }} />
-      <div className='overflow-x-auto'>
+
+      {/* Logo with Framer Motion */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.2 }}
+        transition={{ delay: 0.5, duration: 2.5, ease: "easeOut" }}
+        className="absolute inset-0 w-[400px] h-[400px] top-36 opacity-10 mx-auto"
+        style={{ left: '33%', transform: 'translateX(-50%)' }}
+      >
+        <Image src={uni} alt='Striking Academy Logo' className="w-full h-full" />
+      </motion.div>
+
+      <motion.div
+        className='overflow-x-auto'
+        variants={fadeInUp}
+      >
         <table className='w-full border-collapse text-center text-lg rounded-xl table-fixed'>
           <thead className='rounded-xl'>
             <tr className='bg-primary rounded-xl text-white'>
@@ -89,9 +123,14 @@ const Schedule = () => {
                 {Object.values(row).slice(1).map((training, idx) => (
                   <td key={idx} className='p-0 md:p-4 relative text-start'>
                     {training && (
-                      <div className={`cursor-pointer inline-block text-[8px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] ${trainingColors[training] || ''}`} onClick={(e) => handleClick(e, training)}>
+                      <motion.div
+                        className={`cursor-pointer inline-block text-[8px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] ${trainingColors[training] || ''}`}
+                        onClick={(e) => handleClick(e, training)}
+                        whileHover={{ scale: 1.05 }}
+                        transition={{ duration: 0.2 }}
+                      >
                         {training}
-                      </div>
+                      </motion.div>
                     )}
                   </td>
                 ))}
@@ -99,16 +138,24 @@ const Schedule = () => {
             ))}
           </tbody>
         </table>
-      </div>
+      </motion.div>
 
       {selectedTraining && (
-        <div
+        <motion.div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
           onClick={closeModal}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
         >
-          <div
+          <motion.div
             className="bg-primary w-[90%] sm:w-[400px] h-[320px] p-6 text-white rounded-xl shadow-lg relative overflow-hidden"
             onClick={(e) => e.stopPropagation()}
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.9 }}
+            transition={{ duration: 0.3 }}
           >
             <Image
               width={196}
@@ -123,18 +170,17 @@ const Schedule = () => {
               <span className="font-sans font-bold text-[16px]">{trainingInfo[selectedTraining]}</span>
             </div>
             <div className="flex justify-center gap-4">
-            <Link 
-  href={`/Registrace?sport=${encodeURIComponent(selectedTraining)}`} 
-  className="mt-8 flex justify-center items-center font-black border-2 bg-white text-primary w-32 p-2 rounded-xl"
->
-  Objednat se
-</Link>
-
+              <Link
+                href={`/Registrace?sport=${encodeURIComponent(selectedTraining)}`}
+                className="mt-8 flex justify-center items-center font-black border-2 bg-white text-primary w-32 p-2 rounded-xl"
+              >
+                Objednat se
+              </Link>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 
