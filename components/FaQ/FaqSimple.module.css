@@ -5,7 +5,7 @@
   right: 5%;
   top: 20%;
   background-color: #A05A96;
-  filter: blur(200px);
+  filter: blur(250px);
   border-radius: 50%;
   z-index: -1; /* Moves the blur BEHIND the FAQ */
 }

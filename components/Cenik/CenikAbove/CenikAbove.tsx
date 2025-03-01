@@ -3,7 +3,7 @@ import React from 'react'
 import AboveCen from '@/assets/ayan.png'
 import Image from 'next/image'
 import classes from './CenikAbove.module.css';
-import { Button, Container, Text, Title } from '@mantine/core';
+import {  Title } from '@mantine/core';
 import { motion } from "framer-motion"; 
 const CenikAbove = () => {
   const fadeInUp = {

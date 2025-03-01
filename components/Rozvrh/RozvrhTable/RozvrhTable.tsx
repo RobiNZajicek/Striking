@@ -7,12 +7,51 @@ import uni from '@/assets/uni.png';
 import './RozvrhTable.css';
 import Link from 'next/link';
 
-const schedule = [
-  { time: '16:00', pondeli: '', utery: 'Děti Kickbox', streda: '', ctvrtek: '', patek: 'Děti Kickbox', sobota: '', nedele: '' },
-  { time: '17:00', pondeli: '', utery: 'Kondiční Kickbox', streda: '', ctvrtek: '', patek: 'Kondiční Kickbox', sobota: 'Grappling', nedele: '' },
-  { time: '18:00', pondeli: 'Thaibox', utery: 'Kickbox', streda: '', ctvrtek: 'Thaibox', patek: 'Kickbox', sobota: '', nedele: 'Kruhový Trénink' },
-  { time: '19:00', pondeli: 'Pokročilí', utery: '', streda: '', ctvrtek: '', patek: '', sobota: '', nedele: '' }
-];
+// Restructured schedule data
+const schedule = {
+  pondeli: [
+    { time: '16:00', training: '' },
+    { time: '17:00', training: '' },
+    { time: '18:00', training: 'Thaibox' },
+    { time: '19:00', training: 'Pokročilí' }
+  ],
+  utery: [
+    { time: '16:00', training: 'Děti Kickbox' },
+    { time: '17:00', training: 'Kondiční Kickbox' },
+    { time: '18:00', training: 'Kickbox' },
+    { time: '19:00', training: '' }
+  ],
+  streda: [
+    { time: '16:00', training: '' },
+    { time: '17:00', training: '' },
+    { time: '18:00', training: '' },
+    { time: '19:00', training: '' }
+  ],
+  ctvrtek: [
+    { time: '16:00', training: '' },
+    { time: '17:00', training: '' },
+    { time: '18:00', training: 'Thaibox' },
+    { time: '19:00', training: '' }
+  ],
+  patek: [
+    { time: '16:00', training: 'Děti Kickbox' },
+    { time: '17:00', training: 'Kondiční Kickbox' },
+    { time: '18:00', training: 'Kickbox' },
+    { time: '19:00', training: '' }
+  ],
+  sobota: [
+    { time: '16:00', training: '' },
+    { time: '17:00', training: 'Grappling' },
+    { time: '18:00', training: '' },
+    { time: '19:00', training: '' }
+  ],
+  nedele: [
+    { time: '16:00', training: '' },
+    { time: '17:00', training: '' },
+    { time: '18:00', training: 'Kruhový Trénink' },
+    { time: '19:00', training: '' }
+  ]
+};
 
 const trainingColors = {
   'Kickbox': 'lg:border-l-4 border-l-2 border-green-500 pl-2',
@@ -50,7 +89,7 @@ const Schedule = () => {
   const [expandedDay, setExpandedDay] = useState(null);
 
   useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    const checkMobile = () => setIsMobile(window.innerWidth < 500);
     checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
@@ -134,25 +173,25 @@ const Schedule = () => {
               <div key={dayKey} className='mb-2'>
                 <button
                   onClick={() => toggleDay(dayKey)}
-                  className='w-full bg-primary text-white py-4 rounded-xl px-4 rounded-lg text-left flex justify-between items-center'
+                  className='w-full bg-primary text-white py-4 rounded-xl px-4  text-left flex justify-between items-center'
                 >
                   <span className='font-bold'>{dayName}</span>
                   <span>{expandedDay === dayKey ? '▲' : '▼'}</span>
                 </button>
                 {expandedDay === dayKey && (
                   <div className='mt-2 bg-[#0C0C0C] rounded-lg p-2'>
-                    {schedule
-                      .filter((row) => row[dayKey]) // Filter out empty trainings
+                    {schedule[dayKey]
+                      .filter((row) => row.training) // Filter out empty trainings
                       .map((row, index) => (
                         <div key={index} className='flex justify-between items-center py-1'>
                           <span className='text-[12px] sm:text-[14px]'>{row.time}</span>
                           <motion.div
-                            className={`cursor-pointer inline-block text-[12px] sm:text-[14px] ${trainingColors[row[dayKey]] || ''}`}
-                            onClick={(e) => handleClick(e, row[dayKey])}
+                            className={`cursor-pointer inline-block text-[12px] sm:text-[14px] ${trainingColors[row.training] || ''}`}
+                            onClick={(e) => handleClick(e, row.training)}
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                           >
-                            {row[dayKey]}
+                            {row.training}
                           </motion.div>
                         </div>
                       ))}
@@ -162,34 +201,30 @@ const Schedule = () => {
             ))}
           </div>
         ) : (
-          // Desktop Layout: Days at the top, times on the left
+          // Desktop Layout: Times at the top, days on the left
           <table className='w-full border-collapse text-center text-lg rounded-xl table-fixed'>
             <thead className='rounded-xl'>
               <tr className='bg-primary rounded-xl text-white'>
                 <th className='py-4 px-1 text-start w-[10%] sm:w-[12.5%] rounded-tl-xl text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'></th>
-                <th className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>Pondělí</th>
-                <th className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>Úterý</th>
-                <th className='py-4 px-1 text-start w-[10%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>Středa</th>
-                <th className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>Čtvrtek</th>
-                <th className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>Pátek</th>
-                <th className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>Sobota</th>
-                <th className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px] rounded-tr-xl'>Neděle</th>
+                {schedule.pondeli.map((row, index) => (
+                  <th key={index} className='py-4 px-1 text-start w-[12.5%] text-[8px] sm:text-[14px] md:text-[16px] lg:text-[20px]'>{row.time}</th>
+                ))}
               </tr>
             </thead>
             <tbody className='bg-[#0C0C0C]'>
-              {schedule.map((row, index) => (
-                <tr key={index} className='border-t border-gray-700 h-28'>
-                  <td className='p-0 text-[8px] sm:text-[14px] md:text-[16px] lg:text-[18px] lg:p-4 font-bold'>{row.time}</td>
-                  {Object.values(row).slice(1).map((training, idx) => (
-                    <td key={idx} className='p-0 md:p-4 relative text-start'>
-                      {training && (
+              {Object.entries(daysInCzech).map(([dayKey, dayName]) => (
+                <tr key={dayKey} className='border-t border-gray-700 h-28'>
+                  <td className='p-0 text-[8px] sm:text-[14px] md:text-[16px] lg:text-[18px] lg:p-4 font-bold'>{dayName}</td>
+                  {schedule[dayKey].map((row, index) => (
+                    <td key={index} className='p-0 md:p-4 relative text-start'>
+                      {row.training && (
                         <motion.div
-                          className={`cursor-pointer inline-block text-[8px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] ${trainingColors[training] || ''}`}
-                          onClick={(e) => handleClick(e, training)}
+                          className={`cursor-pointer inline-block text-[8px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] ${trainingColors[row.training] || ''}`}
+                          onClick={(e) => handleClick(e, row.training)}
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.2 }}
                         >
-                          {training}
+                          {row.training}
                         </motion.div>
                       )}
                     </td>

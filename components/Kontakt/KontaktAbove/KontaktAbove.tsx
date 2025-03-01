@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'; // Import Framer Motion
 import dan from '@/assets/dan.png';
 import Image from 'next/image';
 import classes from './KontaktAbove.module.css';
-import { Button, Container, Text, Title } from '@mantine/core';
+import {  Title } from '@mantine/core';
 
 const KontaktAbove = () => {
   // Animation variants

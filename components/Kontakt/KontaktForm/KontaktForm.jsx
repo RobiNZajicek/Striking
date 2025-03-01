@@ -1,11 +1,11 @@
-'use client';
+'use client'
 
 import React from 'react';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
 import './KontaktForm.css';
 
-const ContactForm = () => {
+const KontaktForm = () => {
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
@@ -18,7 +18,7 @@ const ContactForm = () => {
 
   return (
     <motion.div
-      className='relative flex justify-center flex-col px-[1%] xl:px-[10%] Dosxl:px-[15%]'
+      className='relative flex justify-center flex-col px-[1%] xl:px-[7%] Dosxl:px-[15%]'
       initial="hidden"
       whileInView="visible"
       variants={staggerChildren}
@@ -89,4 +89,4 @@ const ContactForm = () => {
   );
 };
 
-export default ContactForm;
+export default KontaktForm;

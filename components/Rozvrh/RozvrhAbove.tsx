@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'; // Import Framer Motion
 import KubaORozvrh from '@/assets/mrKuvaop.webp';
 import Image from 'next/image';
 import classes from './RozvrhAbove.module.css';
-import { Button, Container, Text, Title } from '@mantine/core';
+import { Title } from '@mantine/core';
 
 const RozvrhAbove = () => {
   // Animation variants

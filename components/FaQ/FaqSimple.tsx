@@ -28,7 +28,7 @@ export function FaqSimple() {
         variants={fadeInUp}
         viewport={{ once: true }}
       >
-        <Title ta="center" className="font-black text-[35px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[45px] text-primary mb-8 font-orbion">
+        <Title ta="center" className="font-black text-[30px] sm:text-[30px] md:text-[30px] lg:text-[32px] xl:text-[35px] Dosxl:text-[45px] text-primary mb-8 font-orbion">
           ČASTÉ DOTAZY
         </Title>
       </motion.div>
@@ -103,10 +103,10 @@ export function FaqSimple() {
                         opened === item.value ? 'rotate-180' : ''
                       }`}
                     />
-                    <span className="flex-1 font-orbion">{item.question}</span>
+                    <span className="flex-1 font-sans  text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px]" >{item.question}</span>
                   </div>
                 </AccordionControl>
-                <AccordionPanel className="text-white text-base leading-relaxed px-6 pb-4 font-sans">
+                <AccordionPanel className="text-white  leading-relaxed px-6 pb-4 font-sans text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px]">
                   {item.answer}
                 </AccordionPanel>
               </AccordionItem>

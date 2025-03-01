@@ -59,7 +59,8 @@ const Navbar = () => {
                   pathname === `/${item.toLowerCase()}` ? "text-white" : ""
                 }`}
               >
-                {item.replace("Onas", "O nás")}
+                 {item === "Onas" ? "O nás" : item === "Cenik" ? "Ceník" : item}
+               
               </Link>
             </li>
           ))}
@@ -102,14 +103,14 @@ const Navbar = () => {
 
           {/* Mobile Menu Links */}
           <ul className="flex flex-col items-center gap-10 font-bold text-[24px]">
-            {["Onas", "Ceník", "Rozvrh", "Kontakt"].map((item) => (
+            {["Onas", "Cenik", "Rozvrh", "Kontakt"].map((item) => (
               <li key={item}>
                 <Link
                   href={`/${item}`}
                   className="hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
-                  {item.replace("Onas", "O nás")}
+                   {item === "Onas" ? "O nás" : item === "Cenik" ? "Ceník" : item}
                 </Link>
               </li>
             ))}
@@ -126,7 +127,7 @@ const Navbar = () => {
           </ul>
 
           {/* Contact Info in Mobile Menu */}
-          <div className="flex flex-col items-center gap-4 mt-10 text-[18px]">
+          <div className="flex flex-col items-center gap-4 mt-10 text-[14px]">
             <span className="flex items-center gap-2">
               <BsTelephone size={24} className="text-primary" />
               +420 728 652 065

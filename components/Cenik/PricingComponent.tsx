@@ -66,7 +66,7 @@ const PricingComponent = () => {
               {isMonthly ? 'Standardní měsíční' : '1 vstup'}
             </h3>
             <p className="text-5xl font-black text-primary text-center font-orbion">
-              {isMonthly ? '1200,-' : '200,-'}
+              {isMonthly ? '1400,-' : '250,-'}
             </p>
             <ul className="mt-36 space-y-2 text-lg">
               <li className="flex items-center gap-2 text-[15px] sm:text-[16px] md:text-[13px] lg:text-[18px] font-black font-sans">
@@ -99,7 +99,7 @@ const PricingComponent = () => {
               {isMonthly ? 'Neomezené měsíční' : '10 vstupů'}
             </h3>
             <p className="text-5xl font-black text-primary text-center font-orbion">
-              {isMonthly ? '1600,-' : '1700,-'}
+              {isMonthly ? '1800,-' : '2000,-'}
             </p>
             <ul className="mt-36 space-y-2 text-lg">
               <li className="flex items-center gap-2 text-[15px] sm:text-[16px] md:text-[13px] lg:text-[18px] font-black font-sans">

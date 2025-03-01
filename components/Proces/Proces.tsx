@@ -1,8 +1,8 @@
 'use client'
 import React from 'react';
-import { delay, motion } from 'framer-motion'; // Import Framer Motion
+import {  motion } from 'framer-motion'; // Import Framer Motion
 import './Proces.css';
-import { TiTick } from 'react-icons/ti';
+
 import Link from 'next/link';
 
 const Proces = () => {
@@ -66,10 +66,10 @@ const Proces = () => {
   <path d="M5.082 14.254a8.287 8.287 0 0 0-1.308 5.135 9.687 9.687 0 0 1-1.764-.44l-.115-.04a.563.563 0 0 1-.373-.487l-.01-.121a3.75 3.75 0 0 1 3.57-4.047ZM20.226 19.389a8.287 8.287 0 0 0-1.308-5.135 3.75 3.75 0 0 1 3.57 4.047l-.01.121a.563.563 0 0 1-.373.486l-.115.04c-.567.2-1.156.349-1.764.441Z" />
 </svg>
 
-          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[32px] xl:text-[35px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Výběr
           </span>
-          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px]  text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
+          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px]  text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
             Vyberte si sport, který vám sedne. 
           </span>
         </motion.div>
@@ -92,10 +92,10 @@ const Proces = () => {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[32px] xl:text-[35px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Rozvrh
           </span>
-          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD]  text-center w-[250px] md:w-5/6 font-sans mb-8'>
+          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px] text-[#BDBDBD]  text-center w-[250px] md:w-5/6 font-sans mb-8'>
             Podívejte se, kdy se vám to hodí.
           </span>
         </motion.div>
@@ -117,10 +117,10 @@ const Proces = () => {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[32px] xl:text-[35px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Členství
           </span>
-          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
+          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-5/6 font-sans mb-8'>
             Rozmyslete si, jak často chcete chodit
           </span>
         </motion.div>
@@ -142,10 +142,10 @@ const Proces = () => {
               clipRule='evenodd'
             />
           </svg>
-          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[40px] xl:text-[40px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
+          <span className='text-[30px] sm:text-[30px] md:text-[30px] lg:text-[32px] xl:text-[35px] Dosxl:text-[45px] uppercase font-black text-white font-orbion'>
             Trénink
           </span>
-          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-3/6 font-sans mb-8'>
+          <span className='font-normal text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px] text-[#BDBDBD] text-center w-[250px] md:w-3/6 font-sans mb-8'>
             Přijďte si zaboxovat!
           </span>
         </motion.div>
