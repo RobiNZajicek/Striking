@@ -6,7 +6,6 @@ const Onas = () => {
   return (
     <div>
         <OnasAbove/>
-        {/* <OnasText/> */}
         <Treneri/>
         <ReviewsCarousel/>
     </div>

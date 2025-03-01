@@ -1,7 +1,7 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
 import rev from '@/assets/rev.jpeg';
 import './ReviewsCarousel.css';
 import Image from 'next/image';
@@ -45,43 +45,49 @@ const ReviewsCarousel = () => {
   const [maxWidth, setMaxWidth] = useState('none'); // Default max-width
 
   useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
+    // Ensure this code only runs in the browser
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        const width = window.innerWidth;
 
-      if (width >= 1600) {
-        setMaxWidth('none'); // No max-width
-      } else if (width >= 1200 && width < 1600) {
-        setMaxWidth('1100px'); // 1200px - 1600px
-      } else if (width >= 900 && width < 1200) {
-        setMaxWidth('800px'); // 900px - 1200px
-      } else if (width >= 600 && width < 900) {
-        setMaxWidth('600px'); // 600px - 900px
-      } else if (width >= 550 && width < 600) {
-        setMaxWidth('550px'); 
-      } else if (width >= 450 && width < 550) {
-        setMaxWidth('450px');
-      } else if (width >= 400 && width < 450) {
-        setMaxWidth('400px');
-      } else if (width >= 350 && width < 400) {
-        setMaxWidth('350px'); // 350px - 600px
-      } else if (width >= 300 && width < 350) {
-        setMaxWidth('300px'); // 350px - 600px
-      } else {
-        setMaxWidth('none'); // Fallback
-      }
-    };
+        if (width >= 1600) {
+          setMaxWidth('none'); // No max-width
+        } else if (width >= 1200 && width < 1600) {
+          setMaxWidth('1100px'); // 1200px - 1600px
+        } else if (width >= 900 && width < 1200) {
+          setMaxWidth('800px'); // 900px - 1200px
+        } else if (width >= 600 && width < 900) {
+          setMaxWidth('600px'); // 600px - 900px
+        } else if (width >= 550 && width < 600) {
+          setMaxWidth('550px'); 
+        } else if (width >= 450 && width < 550) {
+          setMaxWidth('450px');
+        } else if (width >= 400 && width < 450) {
+          setMaxWidth('400px');
+        } else if (width >= 350 && width < 400) {
+          setMaxWidth('350px'); // 350px - 600px
+        } else if (width >= 300 && width < 350) {
+          setMaxWidth('300px'); // 350px - 600px
+        } else {
+          setMaxWidth('none'); // Fallback
+        }
+      };
 
-    handleResize(); // Initial check
-    window.addEventListener('resize', handleResize);
+      handleResize(); // Initial check
+      window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+      return () => window.removeEventListener('resize', handleResize);
+    }
   }, []);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % (window.innerWidth < 1600 ? reviews.length : Math.ceil(reviews.length / 2)));
-    }, 7500);
-    return () => clearInterval(interval);
+    // Ensure this code only runs in the browser
+    if (typeof window !== 'undefined') {
+      const interval = setInterval(() => {
+        setIndex((prevIndex) => (prevIndex + 1) % (window.innerWidth < 1600 ? reviews.length : Math.ceil(reviews.length / 2)));
+      }, 7500);
+      return () => clearInterval(interval);
+    }
   }, []);
 
   // Animation variants
@@ -117,7 +123,10 @@ const ReviewsCarousel = () => {
       >
         <motion.div
           className='flex w-full transition-transform duration-[1500ms] ease-in-out'
-          style={{ transform: `translateX(-${index * (window.innerWidth < 1600 ? 100 : 50)}%)`, width: `${window.innerWidth < 1600 ? reviews.length * 100 : (reviews.length / 2) * 100}%` }}
+          style={{ 
+            transform: `translateX(-${index * (typeof window !== 'undefined' && window.innerWidth < 1600 ? 100 : 50)}%)`, 
+            width: `${typeof window !== 'undefined' && window.innerWidth < 1600 ? reviews.length * 100 : (reviews.length / 2) * 100}%` 
+          }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut' }}
@@ -125,7 +134,7 @@ const ReviewsCarousel = () => {
           {reviews.map((review, i) => (
             <motion.div
               key={i}
-              className={`${window.innerWidth < 1600 ? 'w-full' : 'w-1/2'} p-6 flex-shrink-0 flex justify-center`}
+              className={`${typeof window !== 'undefined' && window.innerWidth < 1600 ? 'w-full' : 'w-1/2'} p-6 flex-shrink-0 flex justify-center`}
               variants={fadeInUp}
             >
               <div 
