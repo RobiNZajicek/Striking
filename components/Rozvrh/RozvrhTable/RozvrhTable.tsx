@@ -1,13 +1,12 @@
-'use client';
+"use client";
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion'; // Import Framer Motion
+import { motion } from 'framer-motion';
 import Image from 'next/image';
 import uni from '@/assets/uni.png';
 import './RozvrhTable.css';
 import Link from 'next/link';
 
-// Restructured schedule data
 const schedule = {
   pondeli: [
     { time: '16:00', training: '' },
@@ -84,7 +83,6 @@ const trainerInfo = {
 
 const Schedule = () => {
   const [selectedTraining, setSelectedTraining] = useState(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [isMobile, setIsMobile] = useState(false);
   const [expandedDay, setExpandedDay] = useState(null);
 
@@ -107,12 +105,7 @@ const Schedule = () => {
   }, [selectedTraining]);
 
   const handleClick = (e, training) => {
-    setCursorPos({ x: e.clientX, y: e.clientY });
     setSelectedTraining(training);
-  };
-
-  const closeModal = () => {
-    setSelectedTraining(null);
   };
 
   const toggleDay = (day) => {
@@ -123,11 +116,6 @@ const Schedule = () => {
   const fadeInUp = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
-  };
-
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
   };
 
   // Map days to their Czech equivalents with diacritics
@@ -181,7 +169,7 @@ const Schedule = () => {
                 {expandedDay === dayKey && (
                   <div className='mt-2 bg-[#0C0C0C] rounded-lg p-2'>
                     {schedule[dayKey]
-                      .filter((row) => row.training) // Filter out empty trainings
+                      .filter((row) => row.training)
                       .map((row, index) => (
                         <div key={index} className='flex justify-between items-center py-1'>
                           <span className='text-[12px] sm:text-[14px]'>{row.time}</span>
@@ -239,7 +227,7 @@ const Schedule = () => {
       {selectedTraining && (
         <motion.div
           className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-          onClick={closeModal}
+          onClick={() => setSelectedTraining(null)}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

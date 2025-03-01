@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { motion } from "framer-motion";
 import Image from "next/image";
 import reg from '@/assets/Reg.jpeg';
 
@@ -23,11 +23,9 @@ const trainingColors = {
   'Kruhový Trénink': 'lg:border-l-4 border-l-2 border-primary pl-2 w-32'
 };
 
-
-
 const RegistrationForm = () => {
   const searchParams = useSearchParams();
-  const selectedSport = searchParams.get('sport') || "Kickbox"; // Default to "Kickbox" if none is provided
+  const selectedSport = searchParams.get('sport') || "Kickbox";
 
   const [formData, setFormData] = useState({
     sport: selectedSport,
@@ -50,16 +48,8 @@ const RegistrationForm = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
-  const [selectedTraining, setSelectedTraining] = useState(null);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
+  const [selectedTraining, setSelectedTraining] = useState(null);
 
   useEffect(() => {
     if (selectedTraining) {
@@ -73,25 +63,14 @@ const RegistrationForm = () => {
   }, [selectedTraining]);
 
   const handleClick = (e, training) => {
-    setCursorPos({ x: e.clientX, y: e.clientY });
     setSelectedTraining(training);
-  };
-
-  const closeModal = () => {
-    setSelectedTraining(null);
-  };
-
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
   };
 
   // Map days to their Czech equivalents with diacritics
   const daysInCzech = {
     pondeli: 'Pondělí',
     utery: 'Úterý',
-
+    streda: 'Středa',
     ctvrtek: 'Čtvrtek',
     patek: 'Pátek',
     sobota: 'Sobota',
@@ -104,21 +83,15 @@ const RegistrationForm = () => {
 
   return (
     <div className="relative flex flex-col lg:flex-row items-center lg:items-start text-white py-20 mb-6 x-8 lg:px-16 mx-auto rounded-xl justify-center overflow-hidden bg-black font-sans">
-      {/* Background Image - INSIDE the Component */}
+      {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
-        <Image
-          src={reg}
-          layout="fill"
-          objectFit="cover"
-          alt="Registration Background"
-          className=""
-        />
+        <Image src={reg} layout="fill" objectFit="cover" alt="Registration Background" />
       </div>
 
       {/* Overlay to Darken the Image */}
       <div className="absolute inset-0 bg-black/70"></div>
 
-      {/* Content inside the same container */}
+      {/* Content */}
       <motion.div
         className="relative w-[100%] md:w-[90%] bg-[#00060E]/90 p-4 md:p-10 rounded-xl shadow-lg flex flex-col lg:flex-row items-stretch gap-8"
         initial="hidden"
@@ -140,7 +113,7 @@ const RegistrationForm = () => {
                 <span className='font-bold text-primary'>{dayName}</span>
                 <div className='mt-2 bg-[#0C0C0C] rounded-lg p-2'>
                   {schedule
-                    .filter((row) => row[dayKey]) // Filter out empty trainings
+                    .filter((row) => row[dayKey])
                     .map((row, index) => (
                       <div key={index} className='flex justify-between items-center py-1'>
                         <span className='text-[12px] sm:text-[14px]'>{row.time}</span>
@@ -161,7 +134,6 @@ const RegistrationForm = () => {
         </motion.div>
 
         {/* Right Section - Form */}
-
         <motion.form
           onSubmit={handleSubmit}
           className="w-full lg:w-[50%] p-6 lg:p-10 rounded-xl space-y-4 flex flex-col"
