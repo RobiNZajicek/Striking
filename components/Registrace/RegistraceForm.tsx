@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -25,7 +25,7 @@ const trainingColors = {
 
 const RegistrationForm = () => {
   const searchParams = useSearchParams();
-  const selectedSport = searchParams.get('sport') || "Kickbox";
+  const selectedSport = searchParams.get('sport') || "Kickbox"; // Default to "Kickbox" if none is provided
 
   const [formData, setFormData] = useState({
     sport: selectedSport,
@@ -201,4 +201,12 @@ const RegistrationForm = () => {
   );
 };
 
-export default RegistrationForm;
+const RegistracePage = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <RegistrationForm />
+    </Suspense>
+  );
+};
+
+export default RegistracePage;
