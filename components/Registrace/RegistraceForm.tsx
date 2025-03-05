@@ -51,9 +51,8 @@ const trainingColors: TrainingColors = {
 };
 
 const RegistrationForm = () => {
- 
   const searchParams = useSearchParams();
-  const selectedSport = searchParams?.get('sport') || "Kickbox"; // Použití optional chaining (?.)
+  const selectedSport = searchParams?.get('sport') || "Kickbox"; // Ošetření null hodnoty
 
   const [formData, setFormData] = useState<FormData>({
     sport: selectedSport,
@@ -171,7 +170,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div className="relative flex  flex-col lg:flex-row items-center lg:items-start text-white pt-12 pb-44 mb-6 x-8 md:px-2 lg:px-2  xl:px-2 2xl:px-16 mx-auto rounded-xl justify-center overflow-hidden bg-black font-sans">
+    <div className="relative flex flex-col lg:flex-row items-center lg:items-start text-white pt-12 pb-44 mb-6 x-8 md:px-2 lg:px-2 xl:px-2 2xl:px-16 mx-auto rounded-xl justify-center overflow-hidden bg-black font-sans">
       {/* Background Image */}
       <div className="absolute inset-0 w-full h-full">
         <Image src={reg} layout="fill" objectFit="cover" alt="Registration Background" />
@@ -257,7 +256,7 @@ const RegistrationForm = () => {
             className="w-full p-3 font-sans border border-transparent rounded-xl bg-[#1A1A1A] text-white focus:ring-0 focus:outline-none focus:shadow-[0_0_15px_3px_var(--tw-shadow-color)] shadow-primary transition duration-300 ease-in-out"
           />
 
-          <label className="block font-bold text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px]  font-sans pt-4 mb-2">Email</label>
+          <label className="block font-bold text-[15px] sm:text-[16px] md:text-[15px] lg:text-[18px] Dosxl:text-[20px] font-sans pt-4 mb-2">Email</label>
           <input
             type="email"
             name="email"
@@ -289,18 +288,18 @@ const RegistrationForm = () => {
               className="w-full p-3 border font-sans border-transparent rounded-xl bg-[#1A1A1A] text-white focus:ring-0 focus:outline-none focus:shadow-[0_0_15px_3px_var(--tw-shadow-color)] shadow-primary transition duration-300 ease-in-out cursor-pointer"
             />
             {showCalendar && (
-              <div className="absolute right-[100%] bottom-[30%] z-50 mt-2 bg-[#00060E]   rounded-xl ">
+              <div className="absolute right-[100%] bottom-[30%] z-50 mt-2 bg-[#00060E] rounded-xl">
                 <Calendar
-  onChange={handleDateChange}
-  value={selectedDate}
-  className="react-calendar"
-  tileClassName={tileClassName}
-  showNeighboringMonth={false}
-  formatDay={(locale, date) => date.getDate().toString()} // Zobrazí pouze číslo dne bez tečky
-/>
+                  onChange={handleDateChange}
+                  value={selectedDate}
+                  className="react-calendar"
+                  tileClassName={tileClassName}
+                  showNeighboringMonth={false}
+                  formatDay={(locale, date) => date.getDate().toString()} // Zobrazí pouze číslo dne bez tečky
+                />
                 {selectedDate && (
                   <div className="mt-4 p-2">
-                    <h3 className="font-bold mb-4 text-primary ">Tréninky na {selectedDate.toLocaleDateString()}</h3>
+                    <h3 className="font-bold mb-4 text-primary">Tréninky na {selectedDate.toLocaleDateString()}</h3>
                     {schedule
                       .filter((row) => row[getDayOfWeek(selectedDate) as keyof ScheduleRow])
                       .map((row, index) => (
