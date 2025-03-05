@@ -111,7 +111,7 @@ const RegistrationForm = () => {
             {Object.entries(daysInCzech).map(([dayKey, dayName]) => (
               <div key={dayKey} className='mb-2'>
                 <span className='font-bold text-primary'>{dayName}</span>
-                <div className='mt-2 bg-[#0C0C0C] rounded-lg p-2'>
+                <div className='mt-2  rounded-lg p-2'>
                   {schedule
                     .filter((row) => row[dayKey])
                     .map((row, index) => (

@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -19,9 +23,25 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
-    }
+      "@/*": [
+        "./*"
+      ]
+    },
+    "strictNullChecks": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/Footer/Footer.jsx", "components/Hero/HeroText.jsx", "components/Kontakt/KontaktForm/KontaktForm.jsx", "components/Header/Navbar.jsx", "components/Onas/ReviewsCarousel/ReviewsCarousel.jsx", "components/Onas/Treneri/Treneri.jsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "components/Footer/Footer.jsx",
+    "components/Hero/HeroText.jsx",
+    "components/Kontakt/KontaktForm/KontaktForm.jsx",
+    "components/Header/Navbar.jsx",
+    "components/Onas/ReviewsCarousel/ReviewsCarousel.jsx",
+    "components/Onas/Treneri/Treneri.jsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
