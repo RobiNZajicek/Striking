@@ -25,7 +25,7 @@ const trainingColors = {
 
 const RegistrationForm = () => {
   const searchParams = useSearchParams();
-  const selectedSport = searchParams.get('sport') || "Kickbox"; // Default to "Kickbox" if none is provided
+  const selectedSport = searchParams ? searchParams.get('sport') || "Kickbox" : "Kickbox"; // Default to "Kickbox" if none is provided
 
   const [formData, setFormData] = useState({
     sport: selectedSport,

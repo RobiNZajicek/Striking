@@ -7,7 +7,22 @@ import uni from '@/assets/uni.png';
 import './RozvrhTable.css';
 import Link from 'next/link';
 
-const schedule = {
+type TrainingEntry = {
+  time: string;
+  training: string;
+};
+
+type Schedule = {
+  pondeli: TrainingEntry[];
+  utery: TrainingEntry[];
+  streda: TrainingEntry[];
+  ctvrtek: TrainingEntry[];
+  patek: TrainingEntry[];
+  sobota: TrainingEntry[];
+  nedele: TrainingEntry[];
+};
+
+const schedule: Schedule = {
   pondeli: [
     { time: '16:00', training: '' },
     { time: '17:00', training: '' },
@@ -52,7 +67,11 @@ const schedule = {
   ]
 };
 
-const trainingColors = {
+type TrainingColors = {
+  [key: string]: string;
+};
+
+const trainingColors: TrainingColors = {
   'Kickbox': 'lg:border-l-4 border-l-2 border-green-500 pl-2',
   'Thaibox': 'lg:border-l-4 border-l-2 border-red-500 pl-2',
   'Kondiční Kickbox': 'lg:border-l-4 border-l-2 border-blue-500 pl-2',
@@ -61,6 +80,8 @@ const trainingColors = {
   'Grappling': 'lg:border-l-4 border-l-2 border-yellow-500 pl-2',
   'Kruhový Trénink': 'lg:border-l-4 border-l-2 border-primary pl-2'
 };
+
+type TrainingType = keyof typeof trainingInfo;
 
 const trainingInfo = {
   'Kickbox': 'Dynamické lekce zaměřené na kickbox, důraz na správné technické provedení úderů a na kondici. Doporučeno pro všechny zkušenostní kategorie.',
@@ -72,19 +93,20 @@ const trainingInfo = {
   'Kruhový Trénink': 'Lekce, kde posilujeme celé tělo metodou kruhového tréninku. Cvičení spočívá v několika stanovištích, které trvají určitou dobu. Mezi stanovištěmi je krátká pauza. Tréninky jsou zaměřeny na budování kondice, síly a výbušnosti.'
 };
 
-const trainerInfo = {
-  'KB & K1': 'Trenér: Kuba',
+const trainerInfo: Record<TrainingType, string> = {
+  'Kickbox': 'Trenér: Kuba',
   'Thaibox': 'Trenér: Dan',
-  'Kondiční KB': 'Trenér: Kuba',
-  'Děti KB': 'Trenér: Kuba',
+  'Kondiční Kickbox': 'Trenér: Kuba',
+  'Děti Kickbox': 'Trenér: Kuba',
+  'Pokročilí': 'Trenér: Kuba',
   'Grappling': 'Trenér: Ayan',
-  'Kruhový': 'Trenér: Barča'
+  'Kruhový Trénink': 'Trenér: Barča'
 };
 
 const Schedule = () => {
-  const [selectedTraining, setSelectedTraining] = useState(null);
+  const [selectedTraining, setSelectedTraining] = useState<TrainingType | null>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const [expandedDay, setExpandedDay] = useState(null);
+  const [expandedDay, setExpandedDay] = useState<string | null>(null);
 
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 500);
@@ -104,11 +126,11 @@ const Schedule = () => {
     };
   }, [selectedTraining]);
 
-  const handleClick = (e, training) => {
+  const handleClick = (e: React.MouseEvent, training: TrainingType) => {
     setSelectedTraining(training);
   };
 
-  const toggleDay = (day) => {
+  const toggleDay = (day: string) => {
     setExpandedDay(expandedDay === day ? null : day);
   };
 
@@ -175,7 +197,7 @@ const Schedule = () => {
                           <span className='text-[12px] sm:text-[14px]'>{row.time}</span>
                           <motion.div
                             className={`cursor-pointer inline-block text-[12px] sm:text-[14px] ${trainingColors[row.training] || ''}`}
-                            onClick={(e) => handleClick(e, row.training)}
+                            onClick={(e) => handleClick(e, row.training as TrainingType)}
                             whileHover={{ scale: 1.05 }}
                             transition={{ duration: 0.2 }}
                           >
@@ -208,7 +230,7 @@ const Schedule = () => {
                       {row.training && (
                         <motion.div
                           className={`cursor-pointer inline-block text-[8px] sm:text-[11px] md:text-[12px] lg:text-[14px] xl:text-[16px] ${trainingColors[row.training] || ''}`}
-                          onClick={(e) => handleClick(e, row.training)}
+                          onClick={(e) => handleClick(e, row.training as TrainingType)}
                           whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.2 }}
                         >
