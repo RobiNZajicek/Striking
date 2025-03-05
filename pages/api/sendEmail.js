@@ -1,4 +1,4 @@
-const nodemailer = require('nodemailer');
+import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -8,20 +8,20 @@ export default async function handler(req, res) {
 
     // Create a transporter
     const transporter = nodemailer.createTransport({
-        service: 'gmail',
-        auth: {
-          user: 'narawebs@gmail.com', // Use narawebs@gmail.com as the sender
-          pass: process.env.EMAIL_PASS, // App password for narawebs@gmail.com
-        },
-      });
+      service: 'gmail',
+      auth: {
+        user: 'narawebs@gmail.com', // Use narawebs@gmail.com as the sender
+        pass: process.env.EMAIL_PASS, // App password for narawebs@gmail.com
+      },
+    });
 
     // Define email options
     const mailOptions = {
-        from: process.env.EMAIL_USER, // Sender email
-        to: 'narawebs@gmail.com', // Recipient email
-        subject: `New Message from ${name}`, // Email subject
-        text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // Email body
-      };
+      from: process.env.EMAIL_USER, // Sender email
+      to: 'narawebs@gmail.com', // Recipient email
+      subject: `New Message from ${name}`, // Email subject
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`, // Email body
+    };
 
     try {
       // Send the email
